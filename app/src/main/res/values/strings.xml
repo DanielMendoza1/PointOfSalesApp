@@ -1,0 +1,40 @@
+<resources>
+    <string name="app_name">TianguisApp</string>
+    <string name="encabezado_banner">Punto de venta Tianguis</string>
+    <string name="btn_realizar_apertura">Realizar Apertura</string>
+    <string name="btn_realizar_corte">Realizar Corte</string>
+    <string name="titulo_banner">Ventas Tianguis</string>
+    <string name="titulo_realizar_compra">Realizar Compra</string>
+    <string name="num_productos_agregados">Numero de productos agregados:</string>
+    <string name="textholder_buscar_producto">Buscar Producto</string>
+    <string name="textholder_nombre">Nombre</string>
+    <string name="textholder_precio_unitario">Precio Unitario</string>
+    <string name="textholder_cantidad">Cantidad</string>
+    <string name="textholder_id">Codigo</string>
+    <string name="subTotal">SubTotal:</string>
+    <string name="Total">Total:</string>
+    <string name="titulo_consultar_compras">Consultar Compras</string>
+    <string name="compras_consultadas_por">Compras consultadas por:</string>
+    <string name="detalle_compra">Detalle Compra</string>
+    <string name="col_nombre">Nombre</string>
+    <string name="col_cantidad">Cantidad</string>
+    <string name="col_total">Total</string>
+    <string name="col_tabla_codigo">Codigo</string>
+    <string name="col_tabla_fecha">Fecha</string>
+    <string name="col_tabla_cant_productos">Cant Productos</string>
+    <string name="col_tabla_total">Total</string>
+
+    <string name="btn_compra">Compra</string>
+    <string name="btn_venta">Venta</string>
+    <string name="btn_consultar_compra">Consultar Compra</string>
+    <string name="btn_consultar_venta">Consultar Venta</string>
+    <string name="btn_consultar_finanzas">Consultar Finanzas</string>
+    <string name="btn_consultar_inventario">Consultar Inventario</string>
+    <string name="btn_devolver_producto">Devolver Producto</string>
+    <string name="btn_editar_producto">Editar Producto</string>
+    <string name="btn_eliminar_producto">Eliminar Producto</string>
+    <string name="btn_agregar_producto">Agregar Producto</string>
+    <string name="btn_realizar_compra">Realizar Compra</string>
+
+
+</resources>

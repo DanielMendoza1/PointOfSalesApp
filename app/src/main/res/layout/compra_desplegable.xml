@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:stretchColumns="1,2,3,4">
+
+    <TableRow>
+        <TextView
+            android:id="@+id/campo_id_table"
+            android:textSize="21sp"
+            android:padding="5dp"
+            android:gravity="center"
+            android:textColor="@color/color_texto"
+            android:textStyle="bold"
+            android:layout_column="1"/>
+
+        <TextView
+            android:id="@+id/campo_fecha_table"
+            android:textSize="21sp"
+            android:gravity="center"
+            android:padding="5dp"
+            android:textColor="@color/color_texto"
+            android:textStyle="bold"
+            android:layout_column="1"/>
+
+        <TextView
+            android:id="@+id/campo_cantidad_table"
+            android:textSize="21sp"
+            android:padding="5dp"
+            android:gravity="center"
+            android:textColor="@color/color_texto"
+            android:textStyle="bold"
+            android:layout_column="1"/>
+
+        <TextView
+            android:id="@+id/campo_total_table"
+            android:textSize="21sp"
+            android:padding="5dp"
+            android:gravity="center"
+            android:textColor="@color/color_texto"
+            android:textStyle="bold"
+            android:layout_column="1"/>
+    </TableRow>
+</TableLayout>
