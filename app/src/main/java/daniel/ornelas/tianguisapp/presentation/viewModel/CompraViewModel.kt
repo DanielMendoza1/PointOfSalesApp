@@ -10,18 +10,21 @@ import daniel.ornelas.tianguisapp.data.database.TianguisDB
 import daniel.ornelas.tianguisapp.data.model.CompraModel
 import daniel.ornelas.tianguisapp.data.model.CompraProductosPair
 import daniel.ornelas.tianguisapp.data.repository.CompraRepository
+import daniel.ornelas.tianguisapp.domain.ConsultarComprasProductosCU
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 class CompraViewModel(application: Application): AndroidViewModel(application) {
 
     private val compraRepository: CompraRepository
+    private val consultarComprasProductosCU: ConsultarComprasProductosCU
     val obtenerTodasComprasConProductos: LiveData<List<CompraProductosPair>>
 
     init {
         val comprasDao = TianguisDB.obtenerBD(application).compraDao()
         compraRepository = CompraRepository(comprasDao)
-        obtenerTodasComprasConProductos = compraRepository.obtenerComprasConProductos()
+        consultarComprasProductosCU =  ConsultarComprasProductosCU(compraRepository)
+        obtenerTodasComprasConProductos = consultarComprasProductosCU.invoke()
     }
 
     fun agregarCompra(compraModel: CompraModel): LiveData<Long>{
@@ -60,7 +63,7 @@ class CompraViewModel(application: Application): AndroidViewModel(application) {
         return compraRepository.obtenerComprasConProductos()
     }
 
-    fun obtenerCompraConProductosPorId(id: Int): LiveData<CompraProductosPair>{
+    fun obtenerCompraConProductosPorId(id: Long): LiveData<CompraProductosPair>{
         return compraRepository.obtenerCompraConProductosPorId(id)
     }
 

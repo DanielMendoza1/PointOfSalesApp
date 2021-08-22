@@ -8,7 +8,6 @@ import daniel.ornelas.tianguisapp.databinding.ActivityConsultarComprasBinding
 import daniel.ornelas.tianguisapp.presentation.view.adapter.ComprasAdaptador
 import daniel.ornelas.tianguisapp.presentation.view.adapter.ProductosAdaptador
 import daniel.ornelas.tianguisapp.presentation.viewModel.CompraViewModel
-import daniel.ornelas.tianguisapp.presentation.viewModel.ConsultarComprasViewModel
 
 class ConsultarCompras : AppCompatActivity() {
 
@@ -34,9 +33,9 @@ class ConsultarCompras : AppCompatActivity() {
         recyclerView.layoutManager = LinearLayoutManager(baseContext)
         recyclerView.setHasFixedSize(true)
 
-
-
-
+        comprasViewModel.obtenerTodasComprasConProductos.observe(this, { compras ->
+            adaptador.setDatos(compras)
+        })
 
     }
 }

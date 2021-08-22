@@ -2,11 +2,11 @@
 <TableLayout
     xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:stretchColumns="1,2,3,4">
+    android:stretchColumns="1,2,3">
 
     <TableRow>
         <TextView
-            android:id="@+id/campo_id_table"
+            android:id="@+id/campo_id_producto_table"
             android:textSize="21sp"
             android:padding="5dp"
             android:gravity="center"
@@ -14,7 +14,7 @@
             android:layout_column="1"/>
 
         <TextView
-            android:id="@+id/campo_fecha_table"
+            android:id="@+id/campo_nombre_producto_table"
             android:textSize="21sp"
             android:gravity="center"
             android:padding="5dp"
@@ -22,19 +22,12 @@
             android:layout_column="1"/>
 
         <TextView
-            android:id="@+id/campo_cantidad_table"
+            android:id="@+id/campo_preciouni_producto_table"
             android:textSize="21sp"
             android:padding="5dp"
             android:gravity="center"
             android:textColor="@color/color_texto"
             android:layout_column="1"/>
 
-        <TextView
-            android:id="@+id/campo_total_table"
-            android:textSize="21sp"
-            android:padding="5dp"
-            android:gravity="center"
-            android:textColor="@color/color_texto"
-            android:layout_column="1"/>
     </TableRow>
 </TableLayout>

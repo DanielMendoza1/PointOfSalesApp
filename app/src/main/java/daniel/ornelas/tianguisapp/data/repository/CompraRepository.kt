@@ -17,7 +17,7 @@ class CompraRepository(private val compraDao: CompraDao) {
         return compraDao.obtenerComprasConProductos()
     }
 
-    fun obtenerCompraConProductosPorId(id: Int): LiveData<CompraProductosPair> {
+    fun obtenerCompraConProductosPorId(id: Long): LiveData<CompraProductosPair> {
         return compraDao.obtenerCompraConProductosPorId(id)
     }
 

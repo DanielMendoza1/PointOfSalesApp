@@ -19,7 +19,7 @@ interface CompraDao {
 
     @Transaction
     @Query("SELECT * FROM compras WHERE idCompra = :id")
-    fun obtenerCompraConProductosPorId(id: Int): LiveData<CompraProductosPair>
+    fun obtenerCompraConProductosPorId(id: Long): LiveData<CompraProductosPair>
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun agregarCompra(compra: CompraModel): Long

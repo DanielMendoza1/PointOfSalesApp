@@ -52,7 +52,7 @@
                 android:layout_marginTop="15dp"
                 android:layout_width="220dp"
                 android:layout_height="40dp"
-                android:hint="@string/textholder_buscar_producto"/>
+                android:hint="@string/textholder_buscar_compra"/>
 
         </LinearLayout>
 
@@ -68,10 +68,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="3">
 
             <TableLayout
                 android:layout_width="match_parent"
@@ -125,124 +121,8 @@
 
                 </androidx.recyclerview.widget.RecyclerView>
 
-
             </TableLayout>
-
-
         </LinearLayout>
-
-
-        <LinearLayout
-            android:orientation="vertical"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1">
-
-            <LinearLayout
-                android:orientation="horizontal"
-                android:layout_marginTop="5dp"
-                android:gravity="center_horizontal"
-                android:layout_marginBottom="10dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/segoe_ui_bold"
-                    android:textSize="16sp"
-                    android:text="@string/col_nombre"/>
-
-                <TextView
-                    android:layout_marginHorizontal="20dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/segoe_ui_bold"
-                    android:textSize="16sp"
-                    android:text="@string/col_cantidad"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/segoe_ui_bold"
-                    android:textSize="16sp"
-                    android:text="@string/col_total"/>
-
-            </LinearLayout>
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:layout_height="0dp"
-                android:layout_width="match_parent"
-                android:layout_weight="5">
-
-
-            </androidx.recyclerview.widget.RecyclerView>
-
-
-
-            <LinearLayout
-                android:layout_marginTop="40dp"
-                android:orientation="horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <LinearLayout
-                    android:orientation="vertical"
-                    android:layout_weight="2"
-                    android:layout_width="0dp"
-                    android:layout_height="80dp">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="20dp"
-                        android:layout_marginLeft="20dp"
-                        android:textSize="18sp"
-                        android:textStyle="bold"
-                        android:textColor="@color/color_texto"
-                        android:text="@string/subTotal"/>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="20dp"
-
-                        android:textSize="18sp"
-                        android:textStyle="bold"
-                        android:textColor="@color/color_texto"
-                        android:text="@string/Total"/>
-
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:orientation="vertical"
-                    android:layout_weight="2"
-                    android:layout_width="0dp"
-                    android:layout_height="80dp">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="20dp"
-                        android:layout_marginLeft="50dp"
-                        android:textSize="18sp"
-                        android:textStyle="bold"
-                        android:textColor="@color/color_texto"
-                        android:text="14.00"/>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="50dp"
-                        android:textSize="18sp"
-                        android:textStyle="bold"
-                        android:textColor="@color/color_texto"
-                        android:text="14.00"/>
-                </LinearLayout>
-            </LinearLayout>
-
-        </LinearLayout>
-
     </LinearLayout>
-</LinearLayout>
+
+

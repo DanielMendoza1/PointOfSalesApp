@@ -1,5 +1,6 @@
 package daniel.ornelas.tianguisapp.presentation.view.adapter
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import daniel.ornelas.tianguisapp.R
 import daniel.ornelas.tianguisapp.data.model.CompraModel
 import daniel.ornelas.tianguisapp.data.model.CompraProductosPair
+import daniel.ornelas.tianguisapp.presentation.view.ConsultarProductosCompras
 
 class ComprasAdaptador: RecyclerView.Adapter<ComprasAdaptador.MyViewHolderCompras>() {
 
@@ -36,11 +38,20 @@ class ComprasAdaptador: RecyclerView.Adapter<ComprasAdaptador.MyViewHolderCompra
         cantProducto.text = compraActual.compra.cantProductos.toString()
         total.text = compraActual.compra.montoTotal.toString()
 
+        holder.itemView.setOnClickListener {
+            val id = compraActual.compra.idCompra
+            val intent = Intent(it.context, ConsultarProductosCompras::class.java)
+            intent.putExtra("idCompra", id)
+            it.context.startActivity(intent)
+        }
+
+
     }
 
     override fun getItemCount(): Int {
         return listaCompras.size
     }
+
 
     fun setDatos(compra: List<CompraProductosPair>){
         this.listaCompras = compra

@@ -9,6 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.TianguisApp">
+        <activity android:name=".presentation.view.ConsultarProductosCompras"></activity>
         <activity
             android:name=".presentation.view.ConsultarCompras"
             android:screenOrientation="landscape" />
