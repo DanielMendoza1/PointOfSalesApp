@@ -27,6 +27,10 @@
     <string name="col_tabla_fecha">Fecha</string>
     <string name="col_tabla_cant_productos">Cant Productos</string>
     <string name="col_tabla_total">Total</string>
+    <string name="consultar_por_fechas">Por fechas</string>
+    <string name="consultar_todas">Consultar todas</string>
+    <string name="fecha_desde">Desde</string>
+    <string name="fecha_hasta">Hasta</string>
 
 
     <string name="btn_compra">Compra</string>
@@ -40,6 +44,8 @@
     <string name="btn_eliminar_producto">Eliminar Producto</string>
     <string name="btn_agregar_producto">Agregar Producto</string>
     <string name="btn_realizar_compra">Realizar Compra</string>
+    <string name="btn_cancelar">Cancelar</string>
+    <string name="btn_consultar">Consultar</string>
 
 
 </resources>
