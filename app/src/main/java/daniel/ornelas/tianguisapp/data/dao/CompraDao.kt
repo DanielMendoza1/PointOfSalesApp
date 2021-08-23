@@ -33,7 +33,9 @@ interface CompraDao {
     @Query("SELECT * FROM compras WHERE idCompra = :id")
     fun obtenerCompraPorId(id: Int): LiveData<CompraModel>
 
-    
+    @Transaction
+    @Query("SELECT * FROM compras WHERE fecha BETWEEN :fechaDesde AND :fechaHasta ")
+    fun obtenerComprasConProductosFechas(fechaDesde: String, fechaHasta: String): LiveData<List<CompraProductosPair>>
 
 
 }

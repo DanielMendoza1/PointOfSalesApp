@@ -21,6 +21,10 @@ class CompraRepository(private val compraDao: CompraDao) {
         return compraDao.obtenerCompraConProductosPorId(id)
     }
 
+    fun obtenerComprasPorFechas(fechaDesde: String, fechaHasta: String): LiveData<List<CompraProductosPair>>{
+        return compraDao.obtenerComprasConProductosFechas(fechaDesde, fechaHasta)
+    }
+
     suspend fun agregarCompra(compraModel: CompraModel): Long{
         return compraDao.agregarCompra(compraModel)
     }

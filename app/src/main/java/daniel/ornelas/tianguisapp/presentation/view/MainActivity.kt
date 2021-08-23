@@ -11,6 +11,7 @@ import android.view.Window
 import android.view.WindowManager
 import android.widget.Button
 import android.widget.CheckBox
+import android.widget.RadioButton
 import android.widget.Toast
 import androidx.annotation.RequiresApi
 import daniel.ornelas.tianguisapp.R
@@ -48,16 +49,16 @@ class MainActivity : AppCompatActivity() {
         val window = dialog.window
         window?.setLayout(WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.WRAP_CONTENT)
 
-        val checkBoxFechas = dialog.findViewById(R.id.checkbox_fechas) as CheckBox
+        val checkBoxFechas = dialog.findViewById(R.id.radioBtn_fechas) as RadioButton
         val btnFechaDesde = dialog.findViewById(R.id.btn_fecha_desde) as Button
         val btnFechaHasta = dialog.findViewById(R.id.btn_fecha_hasta) as Button
-        val checkBoxTodas = dialog.findViewById(R.id.checkbox_todas) as CheckBox
+        val checkBoxTodas = dialog.findViewById(R.id.radioBtn_todas) as RadioButton
         val btnCancelar = dialog.findViewById(R.id.btn_cancelar_consulta) as Button
         val btnConsultar = dialog.findViewById(R.id.btn_consultar_compra)  as Button
 
         btnFechaDesde.setOnClickListener {
             val calendario = Calendar.getInstance()
-            val dateSetListener = DatePickerDialog.OnDateSetListener { datePicker, year, month, dayOfMonth ->
+            val dateSetListener = DatePickerDialog.OnDateSetListener { _, year, month, dayOfMonth ->
 
                 calendario.set(Calendar.YEAR, year)
                 calendario.set(Calendar.MONTH, month)
@@ -70,12 +71,11 @@ class MainActivity : AppCompatActivity() {
             DatePickerDialog(this, dateSetListener, calendario.get(Calendar.YEAR),
                 calendario.get(Calendar.MONTH), calendario.get(Calendar.DAY_OF_MONTH)).show()
 
-
         }
 
         btnFechaHasta.setOnClickListener {
             val calendario = Calendar.getInstance()
-            val dateSetListener = DatePickerDialog.OnDateSetListener { datePicker, year, month, dayOfMonth ->
+            val dateSetListener = DatePickerDialog.OnDateSetListener { _, year, month, dayOfMonth ->
 
                 calendario.set(Calendar.YEAR, year)
                 calendario.set(Calendar.MONTH, month)
@@ -88,7 +88,6 @@ class MainActivity : AppCompatActivity() {
             DatePickerDialog(this, dateSetListener, calendario.get(Calendar.YEAR),
                     calendario.get(Calendar.MONTH), calendario.get(Calendar.DAY_OF_MONTH)).show()
 
-
         }
 
         btnCancelar.setOnClickListener {
@@ -97,7 +96,7 @@ class MainActivity : AppCompatActivity() {
 
         btnConsultar.setOnClickListener {
 
-            val intent = Intent(this, ConsultarProductosCompras::class.java)
+            val intent = Intent(this, ConsultarCompras::class.java)
 
             if (checkBoxFechas.isChecked){
                 intent.putExtra("operacion", Operacion.FECHAS)

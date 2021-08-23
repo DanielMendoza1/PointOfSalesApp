@@ -10,6 +10,7 @@ import daniel.ornelas.tianguisapp.data.database.TianguisDB
 import daniel.ornelas.tianguisapp.data.model.CompraModel
 import daniel.ornelas.tianguisapp.data.model.CompraProductosPair
 import daniel.ornelas.tianguisapp.data.repository.CompraRepository
+import daniel.ornelas.tianguisapp.domain.ConsultarCompraProductosPorFechas
 import daniel.ornelas.tianguisapp.domain.ConsultarComprasProductosCU
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -18,12 +19,14 @@ class CompraViewModel(application: Application): AndroidViewModel(application) {
 
     private val compraRepository: CompraRepository
     private val consultarComprasProductosCU: ConsultarComprasProductosCU
+    private val consultarCompraProductosPorFechas: ConsultarCompraProductosPorFechas
     val obtenerTodasComprasConProductos: LiveData<List<CompraProductosPair>>
 
     init {
         val comprasDao = TianguisDB.obtenerBD(application).compraDao()
         compraRepository = CompraRepository(comprasDao)
         consultarComprasProductosCU =  ConsultarComprasProductosCU(compraRepository)
+        consultarCompraProductosPorFechas = ConsultarCompraProductosPorFechas(compraRepository)
         obtenerTodasComprasConProductos = consultarComprasProductosCU.invoke()
     }
 
@@ -65,6 +68,10 @@ class CompraViewModel(application: Application): AndroidViewModel(application) {
 
     fun obtenerCompraConProductosPorId(id: Long): LiveData<CompraProductosPair>{
         return compraRepository.obtenerCompraConProductosPorId(id)
+    }
+
+    fun obtenerProductosCompraPorFecha(fechaDesde: String, fechaHasta: String): LiveData<List<CompraProductosPair>>{
+        return consultarCompraProductosPorFechas.invoke(fechaDesde,  fechaHasta)
     }
 
 }

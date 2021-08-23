@@ -8,6 +8,7 @@ import daniel.ornelas.tianguisapp.databinding.ActivityConsultarComprasBinding
 import daniel.ornelas.tianguisapp.presentation.view.adapter.ComprasAdaptador
 import daniel.ornelas.tianguisapp.presentation.view.adapter.ProductosAdaptador
 import daniel.ornelas.tianguisapp.presentation.viewModel.CompraViewModel
+import daniel.ornelas.tianguisapp.util.Operacion
 
 class ConsultarCompras : AppCompatActivity() {
 
@@ -33,9 +34,26 @@ class ConsultarCompras : AppCompatActivity() {
         recyclerView.layoutManager = LinearLayoutManager(baseContext)
         recyclerView.setHasFixedSize(true)
 
-        comprasViewModel.obtenerTodasComprasConProductos.observe(this, { compras ->
-            adaptador.setDatos(compras)
-        })
+        desplegarProductos()
+
+    }
+
+    fun desplegarProductos(){
+
+        val operacion = intent.getSerializableExtra("operacion")
+        if(operacion == Operacion.TODAS){
+            comprasViewModel.obtenerTodasComprasConProductos.observe(this, { compras ->
+                adaptador.setDatos(compras)
+            })
+        } else if( operacion == Operacion.FECHAS){
+            val fechaDesde = intent.getStringExtra("fechaDesde")
+            val fechaHasta = intent.getStringExtra("fechaHasta")
+
+            comprasViewModel.obtenerProductosCompraPorFecha(fechaDesde!!, fechaHasta!!).observe(this, { compras ->
+                adaptador.setDatos(compras)
+            })
+
+        }
 
     }
 }
