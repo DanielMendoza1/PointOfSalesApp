@@ -80,7 +80,7 @@
 
         <androidx.recyclerview.widget.RecyclerView
             android:layout_marginLeft="15dp"
-            android:id="@+id/recyclerView"
+            android:id="@+id/recyclerViewProductosCompraStock"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="3">
@@ -93,32 +93,6 @@
             android:layout_height="match_parent"
             android:layout_weight="1">
 
-            <EditText
-                android:id="@+id/campo_nombre"
-                android:hint="@string/textholder_nombre"
-                android:layout_marginTop="25dp"
-                android:layout_gravity="center"
-                android:background="@drawable/campo_texto"
-                android:layout_width="210dp"
-                android:layout_height="35dp"/>
-
-            <EditText
-                android:id="@+id/campo_precio_unitario"
-                android:hint="@string/textholder_precio_unitario"
-                android:layout_marginTop="20dp"
-                android:layout_gravity="center"
-                android:background="@drawable/campo_texto"
-                android:layout_width="210dp"
-                android:layout_height="35dp"/>
-
-            <EditText
-                android:id="@+id/campo_cantidad"
-                android:hint="@string/textholder_cantidad"
-                android:layout_marginTop="20dp"
-                android:layout_gravity="center"
-                android:background="@drawable/campo_texto"
-                android:layout_width="210dp"
-                android:layout_height="35dp"/>
 
             <Button
                 android:id="@+id/btn_agregar_producto"
@@ -130,6 +104,52 @@
                 android:textSize="17sp"
                 android:text="@string/btn_agregar_producto"
                 android:backgroundTint="@color/color_btn_secundario"/>
+
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:stretchColumns="1,2,3,4">
+                <TableRow>
+                    <TextView
+                        android:text="@string/col_nombre"
+                        android:textSize="15sp"
+                        android:gravity="center"
+                        android:textColor="@color/color_texto"
+                        android:textStyle="bold"
+                        android:layout_column="1"/>
+
+                    <TextView/>
+                    <TextView
+                        android:text="@string/col_cantidad"
+                        android:textSize="15sp"
+                        android:gravity="center"
+                        android:textColor="@color/color_texto"
+                        android:textStyle="bold"
+                        android:layout_column="1"/>
+
+                    <TextView/>
+
+
+                    <TextView
+                        android:text="@string/col_total"
+                        android:textSize="15sp"
+                        android:gravity="center"
+                        android:textColor="@color/color_texto"
+                        android:textStyle="bold"
+                        android:layout_marginRight="5dp"
+                        android:layout_column="1"/>
+
+                    <TextView/>
+                </TableRow>
+
+
+            </TableLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerViewProductosPreCompra"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="3"/>
 
             <LinearLayout
                 android:layout_marginTop="40dp"

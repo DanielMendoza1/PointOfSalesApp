@@ -11,6 +11,7 @@
     <string name="textholder_nombre">Nombre</string>
     <string name="textholder_precio_unitario">Precio Unitario</string>
     <string name="textholder_cantidad">Cantidad</string>
+    <string name="textholder_descuento">Descuento</string>
     <string name="textholder_id">Codigo</string>
     <string name="subTotal">SubTotal:</string>
     <string name="Total">Total:</string>
@@ -21,7 +22,7 @@
     <string name="detalle_compra">Detalle Compra</string>
     <string name="col_nombre">Nombre</string>
     <string name="col_cantidad">Cantidad</string>
-    <string name="col_precio_unitario">Precio Unitario</string>
+    <string name="col_precio_unitario">Precio U</string>
     <string name="col_total">Total</string>
     <string name="col_tabla_codigo">Codigo</string>
     <string name="col_tabla_fecha">Fecha</string>
@@ -45,6 +46,7 @@
     <string name="btn_agregar_producto">Agregar Producto</string>
     <string name="btn_realizar_compra">Realizar Compra</string>
     <string name="btn_cancelar">Cancelar</string>
+    <string name="btn_agregar">Agregar</string>
     <string name="btn_consultar">Consultar</string>
 
 

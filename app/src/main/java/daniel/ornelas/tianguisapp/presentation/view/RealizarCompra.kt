@@ -10,19 +10,24 @@ import daniel.ornelas.tianguisapp.databinding.ActivityRealizarCompraBinding
 import daniel.ornelas.tianguisapp.data.model.CompraModel
 import daniel.ornelas.tianguisapp.data.model.ProductoModel
 import daniel.ornelas.tianguisapp.presentation.view.adapter.ProductosAdaptador
+import daniel.ornelas.tianguisapp.presentation.view.interfaces.CallBackInterface
 import daniel.ornelas.tianguisapp.presentation.viewModel.CompraViewModel
 import daniel.ornelas.tianguisapp.presentation.viewModel.ProductoViewModel
+import daniel.ornelas.tianguisapp.presentation.viewModel.RealizarCompraViewModel
+import daniel.ornelas.tianguisapp.util.Operacion
 import java.util.*
 import kotlin.collections.HashMap
 import daniel.ornelas.tianguisapp.util.dateAString
 
-class RealizarCompra : AppCompatActivity() {
+class RealizarCompra : AppCompatActivity(), CallBackInterface {
 
     private lateinit var binding: ActivityRealizarCompraBinding
 
     private lateinit var productoViewModel: ProductoViewModel
 
     private lateinit var compraViewModel: CompraViewModel
+
+    private lateinit var realizarCompraViewModel: RealizarCompraViewModel
 
     private lateinit var productosAgregar: HashMap<Long, ProductoModel>
 
@@ -36,14 +41,15 @@ class RealizarCompra : AppCompatActivity() {
         setContentView(binding.root)
 
         //ViewModels
+        realizarCompraViewModel = ViewModelProvider(this).get(RealizarCompraViewModel::class.java)
         productoViewModel = ViewModelProvider(this).get(ProductoViewModel::class.java)
         compraViewModel = ViewModelProvider(this).get(CompraViewModel::class.java)
         productosAgregar = HashMap()
 
 
         //Recyclerview
-        adaptador = ProductosAdaptador()
-        val recyclerView = binding.recyclerView
+        adaptador = ProductosAdaptador(this)
+        val recyclerView = binding.recyclerViewProductosCompraStock
         recyclerView.adapter = adaptador
         recyclerView.layoutManager = GridLayoutManager(baseContext, 4)
         recyclerView.setHasFixedSize(true)
@@ -57,10 +63,20 @@ class RealizarCompra : AppCompatActivity() {
             agregarCompra()
         }
 
+        cargarProductos()
+
+
+
+    }
+
+    private fun cargarProductos() {
+        realizarCompraViewModel.obtenerTodosProductos().observe(this, { productos ->
+            adaptador.setDatos(productos)
+        })
     }
 
     private fun agregarProducto(){
-
+/*
         if (!binding.campoNombre.text.isNullOrEmpty() && !binding.campoPrecioUnitario.text.isNullOrEmpty() && !binding.campoCantidad.text.isNullOrEmpty()) {
 
             val nombre = binding.campoNombre.text.toString()
@@ -78,7 +94,7 @@ class RealizarCompra : AppCompatActivity() {
             Toast.makeText(this, "Debes llener todos los campos de producto", Toast.LENGTH_LONG).show()
 
         }
-
+*/
     }
 
     private fun agregarCompra(){
@@ -103,4 +119,18 @@ class RealizarCompra : AppCompatActivity() {
 
     }
 
+    override fun obtenerCallBack(resultado: HashMap<String, Any>) {
+        val operacion = resultado["operacion"]
+
+        if (operacion == Operacion.COMPRA_SENCILLA){
+            val cantidad = resultado["cantidad"]
+
+
+        } else if (operacion == Operacion.COMPRA_DESCUENTO){
+            val cantidad = resultado["cantidad"]
+            val descuento = resultado["descuento"]
+
+        }
+
+    }
 }

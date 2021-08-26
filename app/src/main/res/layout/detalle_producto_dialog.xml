@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:padding="15dp"
+    android:orientation="vertical">
+
+    <EditText
+        android:id="@+id/campo_cantidad_dialog"
+        android:padding="10dp"
+        android:layout_width="270dp"
+        android:layout_height="65dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginBottom="35dp"
+        android:textSize="28sp"
+        android:text="@string/textholder_cantidad"
+        android:background="@drawable/campo_texto"/>
+
+    <EditText
+        android:id="@+id/campo_descuento_dialog"
+        android:padding="10dp"
+        android:layout_width="270dp"
+        android:layout_height="65dp"
+        android:textSize="28sp"
+        android:text="@string/textholder_descuento"
+        android:background="@drawable/campo_texto"/>
+
+    <LinearLayout
+        android:layout_marginTop="40dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btn_cancelar_producto_dialog"
+            android:layout_marginRight="80dp"
+            android:layout_width="160dp"
+            android:layout_height="wrap_content"
+            android:padding="18dp"
+            android:textSize="20sp"
+            android:text="@string/btn_cancelar"
+            android:backgroundTint="@color/color_btn_cancelar"/>
+
+        <Button
+            android:id="@+id/btn_agregar_producto_dialog"
+            android:layout_width="160dp"
+            android:layout_height="wrap_content"
+            android:padding="18dp"
+            android:textSize="20sp"
+            android:text="@string/btn_agregar"
+            android:backgroundTint="@color/color_principal"/>
+
+    </LinearLayout>
+
+
+
+</LinearLayout>

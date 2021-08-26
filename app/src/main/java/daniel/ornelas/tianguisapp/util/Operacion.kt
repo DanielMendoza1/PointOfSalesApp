@@ -1,5 +1,5 @@
 package daniel.ornelas.tianguisapp.util
 
 enum class Operacion {
-    FECHAS, TODAS
+    FECHAS, TODAS, COMPRA_SENCILLA, COMPRA_DESCUENTO
 }
