@@ -71,15 +71,17 @@ class ProductosAdaptador(private val callBackInterface: CallBackInterface): Recy
 
             if(!campoCantidad.text.isNullOrEmpty() && campoDescuento.text.isNullOrEmpty()){
                 resultado["operacion"] = Operacion.COMPRA_SENCILLA
-                resultado["cantidad"] = campoCantidad.text.toString()
+                resultado["cantidad"] = campoCantidad.text.toString().toLong()
                 resultado["producto"] = producto
+                dialog.dismiss()
                 callBackInterface.obtenerCallBack(resultado)
 
             } else if (!campoCantidad.text.isNullOrEmpty() && !campoDescuento.text.isNullOrEmpty()){
                 resultado["operacion"] = Operacion.COMPRA_DESCUENTO
-                resultado["cantidad"] = campoCantidad.text.toString()
-                resultado["descuento"] = campoDescuento.text.toString()
+                resultado["cantidad"] = campoCantidad.text.toString().toLong()
+                resultado["descuento"] = campoDescuento.text.toString().toLong()
                 resultado["producto"] = producto
+                dialog.dismiss()
                 callBackInterface.obtenerCallBack(resultado)
             } else {
                 Toast.makeText(view.context, "Debe llenar el campo de Cantidad", Toast.LENGTH_SHORT).show()

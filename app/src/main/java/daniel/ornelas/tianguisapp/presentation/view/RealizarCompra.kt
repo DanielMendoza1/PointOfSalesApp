@@ -5,11 +5,13 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import daniel.ornelas.tianguisapp.data.model.CompraProductoCrossRef
 import daniel.ornelas.tianguisapp.databinding.ActivityRealizarCompraBinding
 import daniel.ornelas.tianguisapp.data.model.CompraModel
 import daniel.ornelas.tianguisapp.data.model.ProductoModel
 import daniel.ornelas.tianguisapp.presentation.view.adapter.ProductosAdaptador
+import daniel.ornelas.tianguisapp.presentation.view.adapter.ProductosAgregarCompraAdapter
 import daniel.ornelas.tianguisapp.presentation.view.interfaces.CallBackInterface
 import daniel.ornelas.tianguisapp.presentation.viewModel.CompraViewModel
 import daniel.ornelas.tianguisapp.presentation.viewModel.ProductoViewModel
@@ -33,6 +35,7 @@ class RealizarCompra : AppCompatActivity(), CallBackInterface {
 
     private lateinit var adaptador: ProductosAdaptador
 
+    private lateinit var adaptadorListado: ProductosAgregarCompraAdapter
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -54,18 +57,27 @@ class RealizarCompra : AppCompatActivity(), CallBackInterface {
         recyclerView.layoutManager = GridLayoutManager(baseContext, 4)
         recyclerView.setHasFixedSize(true)
 
+        adaptadorListado = ProductosAgregarCompraAdapter()
+        val recyclerViewListado =  binding.recyclerViewProductosPreCompra
+        recyclerViewListado.adapter = adaptadorListado
+        recyclerViewListado.layoutManager = LinearLayoutManager(baseContext)
+        recyclerViewListado.setHasFixedSize(true)
+
         //Eventos
         binding.btnAgregarProducto.setOnClickListener {
-            agregarProducto()
         }
 
         binding.btnRealizarCompra.setOnClickListener {
             agregarCompra()
         }
+        /*
+        val producto = ProductoModel(1,"Papitas", 15f, 10)
+        val producto2 = ProductoModel(2,"Banana", 4f, 5)
 
-        cargarProductos()
+        productoViewModel.agregarProducto(producto)
+        productoViewModel.agregarProducto(producto2)*/
 
-
+         cargarProductos()
 
     }
 
@@ -75,62 +87,31 @@ class RealizarCompra : AppCompatActivity(), CallBackInterface {
         })
     }
 
-    private fun agregarProducto(){
-/*
-        if (!binding.campoNombre.text.isNullOrEmpty() && !binding.campoPrecioUnitario.text.isNullOrEmpty() && !binding.campoCantidad.text.isNullOrEmpty()) {
-
-            val nombre = binding.campoNombre.text.toString()
-            val precioUnitario = binding.campoPrecioUnitario.text.toString().toFloat()
-            val cantidad = binding.campoCantidad.text.toString().toInt()
-
-            val producto = ProductoModel(0, nombre, precioUnitario, cantidad)
-            productoViewModel.agregarProducto(producto).observe( this, { id ->
-                productosAgregar[id] = producto
-                adaptador.setDatos(ArrayList(productosAgregar.values))
-            })
-            Toast.makeText(this, "Se ha agregado un nuevo producto", Toast.LENGTH_SHORT).show()
-
-        } else {
-            Toast.makeText(this, "Debes llener todos los campos de producto", Toast.LENGTH_LONG).show()
-
-        }
-*/
-    }
-
     private fun agregarCompra(){
-
-        var totalCompra = 0.0f
-        var cantidadProductosCompra = 0
-
-        for (producto in productosAgregar.values){
-            totalCompra += (producto.cantidad * producto.precioUnitario)
-            cantidadProductosCompra += producto.cantidad
-        }
-
-        var compra = CompraModel(0, cantidadProductosCompra, totalCompra, dateAString(Date()))
-        compraViewModel.agregarCompra(compra).observe(this, { idCompra ->
-            for (idProducto in productosAgregar.keys){
-                val detalleCompra = CompraProductoCrossRef(idProducto, idCompra)
-                compraViewModel.agregarCompraConProductos(detalleCompra)
-            }
-        })
-
+        realizarCompraViewModel.agregarCompra(productosAgregar)
         Toast.makeText(this, "Se ha registrado la compra", Toast.LENGTH_SHORT).show()
-
     }
 
     override fun obtenerCallBack(resultado: HashMap<String, Any>) {
         val operacion = resultado["operacion"]
 
         if (operacion == Operacion.COMPRA_SENCILLA){
-            val cantidad = resultado["cantidad"]
+            val cantidad = resultado["cantidad"] as Long
+            val producto = resultado["producto"] as ProductoModel
 
+            productosAgregar[cantidad] = producto
+            agregarProductoListadoCompra()
 
         } else if (operacion == Operacion.COMPRA_DESCUENTO){
             val cantidad = resultado["cantidad"]
             val descuento = resultado["descuento"]
+            val producto = resultado["producto"]
 
         }
 
+    }
+
+    private fun agregarProductoListadoCompra(){
+        adaptadorListado.setDatos(productosAgregar.values.toList(), productosAgregar.keys.toList())
     }
 }

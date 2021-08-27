@@ -4,7 +4,7 @@ import androidx.lifecycle.LiveData
 import daniel.ornelas.tianguisapp.data.dao.CompraDao
 import daniel.ornelas.tianguisapp.data.model.CompraProductoCrossRef
 import daniel.ornelas.tianguisapp.data.model.CompraModel
-import daniel.ornelas.tianguisapp.data.model.CompraProductosPair
+import daniel.ornelas.tianguisapp.data.model.CompraConProductos
 
 class CompraRepository(private val compraDao: CompraDao) {
 
@@ -13,15 +13,15 @@ class CompraRepository(private val compraDao: CompraDao) {
         compraDao.agregarCompraConProductos(compraProductoCrossRef)
     }
 
-    fun obtenerComprasConProductos(): LiveData<List<CompraProductosPair>>{
+    fun obtenerComprasConProductos(): LiveData<List<CompraConProductos>>{
         return compraDao.obtenerComprasConProductos()
     }
 
-    fun obtenerCompraConProductosPorId(id: Long): LiveData<CompraProductosPair> {
+    fun obtenerCompraConProductosPorId(id: Long): LiveData<CompraConProductos> {
         return compraDao.obtenerCompraConProductosPorId(id)
     }
 
-    fun obtenerComprasPorFechas(fechaDesde: String, fechaHasta: String): LiveData<List<CompraProductosPair>>{
+    fun obtenerComprasPorFechas(fechaDesde: String, fechaHasta: String): LiveData<List<CompraConProductos>>{
         return compraDao.obtenerComprasConProductosFechas(fechaDesde, fechaHasta)
     }
 
@@ -40,6 +40,4 @@ class CompraRepository(private val compraDao: CompraDao) {
     suspend fun eliminarCompra(compraModel: CompraModel){
         compraDao.eliminarCompra(compraModel)
     }
-
-
 }

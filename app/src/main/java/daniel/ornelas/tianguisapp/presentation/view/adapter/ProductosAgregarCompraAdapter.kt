@@ -8,9 +8,10 @@ import androidx.recyclerview.widget.RecyclerView
 import daniel.ornelas.tianguisapp.R
 import daniel.ornelas.tianguisapp.data.model.ProductoModel
 
-class ProductosAgregarCompra: RecyclerView.Adapter<ProductosAgregarCompra.MyViewHolder>() {
+class ProductosAgregarCompraAdapter: RecyclerView.Adapter<ProductosAgregarCompraAdapter.MyViewHolder>() {
 
-    private var listaProductos = emptyList<ProductoModel>()
+    private var productosAgregar = emptyList<ProductoModel>()
+    private var cantidades = emptyList<Long>()
 
     class MyViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
 
@@ -21,22 +22,25 @@ class ProductosAgregarCompra: RecyclerView.Adapter<ProductosAgregarCompra.MyView
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-        val productoActual = listaProductos[position]
+        val productoActual = productosAgregar[position]
+        val cantidadActual = cantidades[position]
 
         val nombre = holder.itemView.findViewById(R.id.nombre_producto_agregar) as TextView
         val cantidad = holder.itemView.findViewById(R.id.cantidad_producto_agregar) as TextView
         val total = holder.itemView.findViewById(R.id.total_producto_agregar) as TextView
 
         nombre.text = productoActual.nombre
-        cantidad
+        cantidad.text = cantidadActual.toString()
+        total.text = (cantidadActual * productoActual.precioUnitario).toString()
     }
 
     override fun getItemCount(): Int {
-        return listaProductos.size
+        return productosAgregar.size
     }
 
-    fun setDatos(producto: List<ProductoModel>){
-        this.listaProductos = producto
+    fun setDatos(producto: List<ProductoModel>, cantidades: List<Long>){
+        this.productosAgregar = producto
+        this.cantidades = cantidades
         notifyDataSetChanged()
     }
 

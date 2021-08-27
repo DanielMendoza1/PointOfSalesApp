@@ -14,17 +14,17 @@ class AgregarCompraCU(private val compraRepository: CompraRepository) {
     suspend operator fun invoke(productosAgregar: HashMap<Long, ProductoModel>){
 
         var totalCompra = 0.0f
-        var cantidadProductosCompra = 0
+        var cantidadProductosCompra = 0L
 
-        for (producto in productosAgregar.values){
-            totalCompra += (producto.cantidad * producto.precioUnitario)
-            cantidadProductosCompra += producto.cantidad
+        for (producto in productosAgregar){
+            totalCompra += (producto.key * producto.value.precioUnitario)
+            cantidadProductosCompra += producto.key
         }
 
         var compra = CompraModel(0, cantidadProductosCompra, totalCompra, dateAString(Date()))
         val idCompra = compraRepository.agregarCompra(compra)
-        for (idProducto in productosAgregar.keys){
-            val detalleCompra = CompraProductoCrossRef(idProducto, idCompra)
+        for (producto in productosAgregar){
+            val detalleCompra = CompraProductoCrossRef(producto.value.idProducto, idCompra, (producto.key * producto.value.precioUnitario), producto.key)
             compraRepository.agregarCompraConProductos(detalleCompra)
         }
     }

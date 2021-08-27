@@ -12,7 +12,7 @@ import daniel.ornelas.tianguisapp.data.model.ProductoModel
 
 @Database(
     entities = [ProductoModel::class, CompraModel::class, CompraProductoCrossRef::class],
-    version = 2
+    version = 4
 )
 abstract class TianguisDB: RoomDatabase() {
 

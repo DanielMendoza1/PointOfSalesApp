@@ -7,6 +7,7 @@
     android:orientation="vertical">
 
     <EditText
+        android:inputType="number"
         android:id="@+id/campo_cantidad_dialog"
         android:padding="10dp"
         android:layout_width="270dp"
@@ -18,6 +19,7 @@
         android:background="@drawable/campo_texto"/>
 
     <EditText
+        android:inputType="number"
         android:id="@+id/campo_descuento_dialog"
         android:padding="10dp"
         android:layout_width="270dp"

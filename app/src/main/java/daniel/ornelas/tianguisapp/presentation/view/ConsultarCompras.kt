@@ -6,7 +6,6 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import daniel.ornelas.tianguisapp.databinding.ActivityConsultarComprasBinding
 import daniel.ornelas.tianguisapp.presentation.view.adapter.ComprasAdaptador
-import daniel.ornelas.tianguisapp.presentation.view.adapter.ProductosAdaptador
 import daniel.ornelas.tianguisapp.presentation.viewModel.CompraViewModel
 import daniel.ornelas.tianguisapp.util.Operacion
 

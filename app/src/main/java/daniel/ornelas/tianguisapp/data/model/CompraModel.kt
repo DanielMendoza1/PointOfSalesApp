@@ -7,7 +7,7 @@ import androidx.room.PrimaryKey
 data class CompraModel(
         @PrimaryKey(autoGenerate = true)
         val idCompra: Long,
-        val cantProductos: Int,
+        val cantProductos: Long,
         val montoTotal: Float,
         val fecha: String
 ) {

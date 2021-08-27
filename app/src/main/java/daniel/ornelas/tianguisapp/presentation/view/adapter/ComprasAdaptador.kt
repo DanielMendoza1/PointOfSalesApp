@@ -5,16 +5,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import androidx.appcompat.view.menu.ActionMenuItemView
 import androidx.recyclerview.widget.RecyclerView
 import daniel.ornelas.tianguisapp.R
-import daniel.ornelas.tianguisapp.data.model.CompraModel
-import daniel.ornelas.tianguisapp.data.model.CompraProductosPair
+import daniel.ornelas.tianguisapp.data.model.CompraConProductos
 import daniel.ornelas.tianguisapp.presentation.view.ConsultarProductosCompras
 
 class ComprasAdaptador: RecyclerView.Adapter<ComprasAdaptador.MyViewHolderCompras>() {
 
-    private var listaCompras = emptyList<CompraProductosPair>()
+    private var listaCompras = emptyList<CompraConProductos>()
 
     class MyViewHolderCompras(itemView: View): RecyclerView.ViewHolder(itemView){
 
@@ -53,8 +51,8 @@ class ComprasAdaptador: RecyclerView.Adapter<ComprasAdaptador.MyViewHolderCompra
     }
 
 
-    fun setDatos(compra: List<CompraProductosPair>){
-        this.listaCompras = compra
+    fun setDatos(compraCon: List<CompraConProductos>){
+        this.listaCompras = compraCon
         notifyDataSetChanged()
     }
 

@@ -8,7 +8,7 @@ import androidx.lifecycle.viewModelScope
 import daniel.ornelas.tianguisapp.data.model.CompraProductoCrossRef
 import daniel.ornelas.tianguisapp.data.database.TianguisDB
 import daniel.ornelas.tianguisapp.data.model.CompraModel
-import daniel.ornelas.tianguisapp.data.model.CompraProductosPair
+import daniel.ornelas.tianguisapp.data.model.CompraConProductos
 import daniel.ornelas.tianguisapp.data.repository.CompraRepository
 import daniel.ornelas.tianguisapp.domain.ConsultarCompraProductosPorFechas
 import daniel.ornelas.tianguisapp.domain.ConsultarComprasProductosCU
@@ -20,7 +20,7 @@ class CompraViewModel(application: Application): AndroidViewModel(application) {
     private val compraRepository: CompraRepository
     private val consultarComprasProductosCU: ConsultarComprasProductosCU
     private val consultarCompraProductosPorFechas: ConsultarCompraProductosPorFechas
-    val obtenerTodasComprasConProductos: LiveData<List<CompraProductosPair>>
+    val obtenerTodasComprasConProductos: LiveData<List<CompraConProductos>>
 
     init {
         val comprasDao = TianguisDB.obtenerBD(application).compraDao()
@@ -62,16 +62,15 @@ class CompraViewModel(application: Application): AndroidViewModel(application) {
         }
     }
 
-    fun obtenerTodasComprasConProductos(): LiveData<List<CompraProductosPair>>{
+    fun obtenerTodasComprasConProductos(): LiveData<List<CompraConProductos>>{
         return compraRepository.obtenerComprasConProductos()
     }
 
-    fun obtenerCompraConProductosPorId(id: Long): LiveData<CompraProductosPair>{
+    fun obtenerCompraConProductosPorId(id: Long): LiveData<CompraConProductos>{
         return compraRepository.obtenerCompraConProductosPorId(id)
     }
 
-    fun obtenerProductosCompraPorFecha(fechaDesde: String, fechaHasta: String): LiveData<List<CompraProductosPair>>{
+    fun obtenerProductosCompraPorFecha(fechaDesde: String, fechaHasta: String): LiveData<List<CompraConProductos>>{
         return consultarCompraProductosPorFechas.invoke(fechaDesde,  fechaHasta)
     }
-
 }

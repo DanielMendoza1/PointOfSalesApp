@@ -4,9 +4,8 @@ import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import daniel.ornelas.tianguisapp.data.database.TianguisDB
-import daniel.ornelas.tianguisapp.data.model.CompraProductosPair
+import daniel.ornelas.tianguisapp.data.model.CompraConProductos
 import daniel.ornelas.tianguisapp.data.repository.CompraRepository
-import daniel.ornelas.tianguisapp.domain.ConsultarCompraProductosPorFechas
 import daniel.ornelas.tianguisapp.domain.ConsultarCompraProductosPorIdCU
 
 class ConsultarProductosComprasViewModel(application: Application): AndroidViewModel(application) {
@@ -22,7 +21,7 @@ class ConsultarProductosComprasViewModel(application: Application): AndroidViewM
     }
 
 
-    fun obtenerProductosCompraPorId(id: Long): LiveData<CompraProductosPair>{
+    fun obtenerProductosCompraPorId(id: Long): LiveData<CompraConProductos>{
         return consultarCompraProductosPorIdCU.invoke(id)
     }
 

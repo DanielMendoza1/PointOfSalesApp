@@ -2,14 +2,11 @@ package daniel.ornelas.tianguisapp.presentation.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import daniel.ornelas.tianguisapp.data.model.CompraProductosPair
 import daniel.ornelas.tianguisapp.databinding.ActivityConsultarProductosComprasBinding
 import daniel.ornelas.tianguisapp.presentation.view.adapter.ProductosComprasAdapter
 import daniel.ornelas.tianguisapp.presentation.viewModel.ConsultarProductosComprasViewModel
-import daniel.ornelas.tianguisapp.util.Operacion
 
 class ConsultarProductosCompras : AppCompatActivity() {
 
@@ -34,14 +31,14 @@ class ConsultarProductosCompras : AppCompatActivity() {
         recyclerView.adapter = adaptador
         recyclerView.layoutManager = LinearLayoutManager(baseContext)
 
-        desplegarProductos()
+       // desplegarProductos()
     }
-
+/*
     fun desplegarProductos(){
         val id = intent.getLongExtra("idCompra",-1)
         consultarProductosComprasViewModel.obtenerProductosCompraPorId(id).observe(this, { compras ->
         adaptador.setDatos(compras.productos)})
 
     }
-
+*/
 }
