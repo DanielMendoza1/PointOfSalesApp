@@ -66,7 +66,7 @@ class CompraViewModel(application: Application): AndroidViewModel(application) {
         return compraRepository.obtenerComprasConProductos()
     }
 
-    fun obtenerCompraConProductosPorId(id: Long): LiveData<CompraConProductos>{
+    fun obtenerCompraConProductosPorId(id: Long): LiveData<List<CompraConProductos>>{
         return compraRepository.obtenerCompraConProductosPorId(id)
     }
 

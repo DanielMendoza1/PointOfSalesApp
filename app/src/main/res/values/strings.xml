@@ -17,6 +17,7 @@
     <string name="Total">Total:</string>
     <string name="titulo_consultar_compras">Consultar Compras</string>
     <string name="titulo_consultar_productos_compra">Consultar productos de la compra</string>
+    <string name="titulo_consultar_inventario">Consultar Inventario</string>
     <string name="compras_consultadas_por">Compras consultadas por:</string>
     <string name="id_compra">Compra ID:</string>
     <string name="detalle_compra">Detalle Compra</string>

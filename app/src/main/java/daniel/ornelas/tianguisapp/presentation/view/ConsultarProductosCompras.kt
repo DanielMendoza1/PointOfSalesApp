@@ -31,14 +31,14 @@ class ConsultarProductosCompras : AppCompatActivity() {
         recyclerView.adapter = adaptador
         recyclerView.layoutManager = LinearLayoutManager(baseContext)
 
-       // desplegarProductos()
+        desplegarProductos()
     }
-/*
+
     fun desplegarProductos(){
         val id = intent.getLongExtra("idCompra",-1)
         consultarProductosComprasViewModel.obtenerProductosCompraPorId(id).observe(this, { compras ->
-        adaptador.setDatos(compras.productos)})
+            adaptador.setDatos(compras)})
 
     }
-*/
+
 }

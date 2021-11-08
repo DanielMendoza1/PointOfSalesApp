@@ -65,20 +65,14 @@ class RealizarCompra : AppCompatActivity(), CallBackInterface {
 
         //Eventos
         binding.btnAgregarProducto.setOnClickListener {
+
         }
 
         binding.btnRealizarCompra.setOnClickListener {
             agregarCompra()
         }
-        /*
-        val producto = ProductoModel(1,"Papitas", 15f, 10)
-        val producto2 = ProductoModel(2,"Banana", 4f, 5)
-
-        productoViewModel.agregarProducto(producto)
-        productoViewModel.agregarProducto(producto2)*/
 
          cargarProductos()
-
     }
 
     private fun cargarProductos() {
@@ -113,5 +107,9 @@ class RealizarCompra : AppCompatActivity(), CallBackInterface {
 
     private fun agregarProductoListadoCompra(){
         adaptadorListado.setDatos(productosAgregar.values.toList(), productosAgregar.keys.toList())
+    }
+
+    private fun agregarProducto(){
+        
     }
 }

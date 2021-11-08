@@ -51,8 +51,8 @@ class ComprasAdaptador: RecyclerView.Adapter<ComprasAdaptador.MyViewHolderCompra
     }
 
 
-    fun setDatos(compraCon: List<CompraConProductos>){
-        this.listaCompras = compraCon
+    fun setDatos(compraConProductos: List<CompraConProductos>){
+        this.listaCompras = compraConProductos
         notifyDataSetChanged()
     }
 

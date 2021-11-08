@@ -21,7 +21,7 @@ class ConsultarProductosComprasViewModel(application: Application): AndroidViewM
     }
 
 
-    fun obtenerProductosCompraPorId(id: Long): LiveData<CompraConProductos>{
+    fun obtenerProductosCompraPorId(id: Long): LiveData<List<CompraConProductos>>{
         return consultarCompraProductosPorIdCU.invoke(id)
     }
 

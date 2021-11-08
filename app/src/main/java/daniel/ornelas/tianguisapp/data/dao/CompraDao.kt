@@ -17,7 +17,7 @@ interface CompraDao {
     suspend fun agregarCompraConProductos(compraProductoCrossRef: CompraProductoCrossRef)
 
     @Query("SELECT compras.idCompra, compras.cantProductos, compras.montoTotal, compras.fecha, productos.idProducto, productos.cantidad, productos.precioUnitario, productos.nombre, CompraProductoCrossRef.importe, CompraProductoCrossRef.cantidadProductoCompra FROM compras INNER JOIN CompraProductoCrossRef ON compras.idCompra = CompraProductoCrossRef.idCompra INNER JOIN productos ON productos.idProducto = CompraProductoCrossRef.idProducto WHERE compras.idCompra = :id")
-    fun obtenerCompraConProductosPorId(id: Long): LiveData<CompraConProductos>
+    fun obtenerCompraConProductosPorId(id: Long): LiveData<List<CompraConProductos>>
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun agregarCompra(compra: CompraModel): Long

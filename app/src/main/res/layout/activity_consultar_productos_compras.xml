@@ -72,7 +72,7 @@
         <TableLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:stretchColumns="1,2,3"
+            android:stretchColumns="1,2,3,4,5"
             android:layout_margin="8dp">
 
             <TableRow>
@@ -95,7 +95,25 @@
                     android:layout_column="1"/>
 
                 <TextView
+                    android:text="@string/col_tabla_cant_productos"
+                    android:textSize="21sp"
+                    android:padding="5dp"
+                    android:gravity="center"
+                    android:textColor="@color/color_texto"
+                    android:textStyle="bold"
+                    android:layout_column="1"/>
+
+                <TextView
                     android:text="@string/col_precio_unitario"
+                    android:textSize="21sp"
+                    android:padding="5dp"
+                    android:gravity="center"
+                    android:textColor="@color/color_texto"
+                    android:textStyle="bold"
+                    android:layout_column="1"/>
+
+                <TextView
+                    android:text="@string/col_tabla_total"
                     android:textSize="21sp"
                     android:padding="5dp"
                     android:gravity="center"

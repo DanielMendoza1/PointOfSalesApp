@@ -42,14 +42,16 @@ class ConsultarCompras : AppCompatActivity() {
         val operacion = intent.getSerializableExtra("operacion")
         if(operacion == Operacion.TODAS){
             comprasViewModel.obtenerTodasComprasConProductos.observe(this, { compras ->
-                adaptador.setDatos(compras)
+                val comprasUnicas = compras.distinctBy { it.compra.idCompra }
+                adaptador.setDatos(comprasUnicas)
             })
         } else if( operacion == Operacion.FECHAS){
             val fechaDesde = intent.getStringExtra("fechaDesde")
             val fechaHasta = intent.getStringExtra("fechaHasta")
 
             comprasViewModel.obtenerProductosCompraPorFecha(fechaDesde!!, fechaHasta!!).observe(this, { compras ->
-                adaptador.setDatos(compras)
+                val comprasUnicas = compras.distinctBy { it.compra.idCompra }
+                adaptador.setDatos(comprasUnicas)
             })
 
         }
